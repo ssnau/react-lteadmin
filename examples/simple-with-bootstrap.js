@@ -1,10 +1,38 @@
-import Component from 'react-react-lteadmin2';
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React, {Component} from "react";
+import {render} from "react-dom";
+import Button from "react-lteadmin2/src/component/button";
+import Header from "react-lteadmin2/src/component/header";
+import Aside from "react-lteadmin2/src/Component/aside";
 
-// 这个示例中表明组件依赖bootstrap的样式，引入bootstrap有两种方式：
-// 1. NPM方式: npm install bootstrap，然后在文件里写require('bootstrap/dist/css/bootstrap.css')即可.
-// 2. CDN方式(建议): 新建一个与示例同名的html文件，写上依赖（此例），这样打包文件更小，速度更快
-//    注意：这种方式下，你获得了自定义HTML结构的权利，故框架将不再提供__component-content节点
+class App extends React.Component {
+  render() {
+    return (
+      <div>
+        <Header>
+          <Header.LTEHeaderItem>
+            <Header.LTEHeaderDropDown isLoading={true}>
+              <li>hello </li>
+              <li>jack </li>
+              <li>hello </li>
+            </Header.LTEHeaderDropDown>
+          </Header.LTEHeaderItem>
+        </Header>
+        <Aside>
+          <Aside.LTEAsideUserPanel />
+          <Aside.LTEAsideSearchBar />
+        </Aside>
+      </div>
+    );
+  }
+}
 
-ReactDOM.render(<Component />, document.getElementById('app'));
+document.body.className = "skin-blue sidebar-mini";
+var appNode = document.getElementById('app');
+appNode.className = 'wrapper';
+appNode.style = 'overflow: visible'; // i dont know why i have to do this
+render(<App />, appNode);
+
+var rootNode = document.body.querySelector('div');
+var componentNode = document.getElementById('__component-content');
+
+rootNode.parentNode.replaceChild(componentNode, rootNode);

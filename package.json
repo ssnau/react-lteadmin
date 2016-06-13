@@ -1,5 +1,5 @@
 {
-  "name": "react-react-lteadmin2",
+  "name": "react-lteadmin2",
   "version": "0.1.0",
   "description": "lteadmin for react",
   "author": {
@@ -54,5 +54,9 @@
     "bootstrap": "^3.3.5",
     "sinon": "^1.15.4"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "react-pure-render-decorator": "^0.2.2",
+    "rt-core": "^0.4.3"
+  }
 }
