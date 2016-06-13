@@ -1,21 +1,65 @@
 import React, {Component} from "react";
 import {render} from "react-dom";
-import Button from "react-lteadmin2/src/component/button";
-import Header from "react-lteadmin2/src/component/header";
-import Aside from "react-lteadmin2/src/Component/aside";
+import Button from "react-lteadmin/src/component/button";
+import Header from "react-lteadmin/src/component/header";
+import Aside from "react-lteadmin/src/Component/aside";
+import ControlSideBar from "react-lteadmin/src/Component/control-sidebar"
 
 class App extends React.Component {
   render() {
     return (
       <div>
         <Header>
-          <Header.LTEHeaderItem>
-            <Header.LTEHeaderDropDown isLoading={true}>
-              <li>hello </li>
-              <li>jack </li>
-              <li>hello </li>
-            </Header.LTEHeaderDropDown>
-          </Header.LTEHeaderItem>
+          <Header.Item rootNodeClassName="messages-menu" iconName="envelope-o" superscript="4">
+            <Header.DropDown>
+              <li className="header">You have 4 messages</li>
+              <li>
+                <Header.DropDownContainer>
+                  <Header.DropDownMessage>Why not buy a new awesome theme?</Header.DropDownMessage>
+                  <Header.DropDownMessage>Why not buy a new awesome theme?</Header.DropDownMessage>
+                  <Header.DropDownMessage>Why not buy a new awesome theme?</Header.DropDownMessage>
+                  <Header.DropDownMessage>Why not buy a new awesome theme?</Header.DropDownMessage>
+                </Header.DropDownContainer>
+              </li>
+              <li className="footer"><a href="#">See All Messages</a></li>
+            </Header.DropDown>
+          </Header.Item>
+          <Header.Item rootNodeClassName="notifications-menu" iconName="bell-o" superscript="10">
+            <Header.DropDown>
+              <li className="header">You have 10 notifications</li>
+              <li>
+                <Header.DropDownContainer>
+                  <Header.DropDownItem iconName="users" iconColor="aqua">5 new members joined today</Header.DropDownItem>
+                  <Header.DropDownItem iconName="warning" iconColor="yellow">Very long description here that may not fit into the page and may cause design problems </Header.DropDownItem>
+                  <Header.DropDownItem iconName="users" iconColor="red">5 new members joined</Header.DropDownItem>
+                  <Header.DropDownItem iconName="shopping-cart" iconColor="green">25 sales made</Header.DropDownItem>
+                  <Header.DropDownItem iconName="user" iconColor="red">You changed your username</Header.DropDownItem>
+                </Header.DropDownContainer>
+              </li>
+              <li className="footer"><a href="#">View all</a></li>
+            </Header.DropDown>
+          </Header.Item>
+          <Header.Item rootNodeClassName="tasks-menu" iconName="flag-o" superscript="9" labelType="danger">
+            <Header.DropDown>
+              <li className="header">You have 9 tasks</li>
+              <li>
+                <Header.DropDownContainer>
+                  <Header.DropDownProgressItem progress={0.2} barColor='aqua'>Design some buttons</Header.DropDownProgressItem>
+                  <Header.DropDownProgressItem progress={0.4} barColor='green'>Create a nice theme</Header.DropDownProgressItem>
+                  <Header.DropDownProgressItem progress={0.6} barColor='red'>Some task I need to do</Header.DropDownProgressItem>
+                  <Header.DropDownProgressItem progress={0.8} barColor='yellow'>Make beautiful transitions</Header.DropDownProgressItem>
+                </Header.DropDownContainer>
+              </li>
+              <li className="footer"><a href="#">View all</a></li>
+            </Header.DropDown>
+          </Header.Item>
+          <Header.Item rootNodeClassName="user-menu" iconName="" superscript="" content={<div><img src="http://s1.meituan.net/bs/file/?f=delivr:lte-admin/v2.3.3/dist/img/user2-160x160.jpg@f559e05" className="user-image" />Alexander Pierce</div>} >
+            <Header.DropDownProfile />
+          </Header.Item>
+          <Header.Item iconName="gears" superscript="">
+            <Header.DropDown>
+            </Header.DropDown>
+          </Header.Item>
         </Header>
         <Aside>
           <Aside.UserPanel />
@@ -114,6 +158,17 @@ class App extends React.Component {
 
           </Aside.MenuList>
         </Aside>
+        <ControlSideBar>
+          <ControlSideBar.TabGroup>
+            <ControlSideBar.Tab iconName="wrench" />
+            <ControlSideBar.Tab iconName="home" />
+            <ControlSideBar.Tab iconName="gears" />
+          </ControlSideBar.TabGroup>
+          <ControlSideBar.TabContent>
+            {/* TODO: wait for form components */}
+            <h4 className="control-sidebar-heading">Layout Options</h4>
+          </ControlSideBar.TabContent>
+        </ControlSideBar>
       </div>
     );
   }

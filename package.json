@@ -55,6 +55,6 @@
   },
   "license": "MIT",
   "dependencies": {
-    "react-pure-render-decorator": "^0.2.2",
+    "react-pure-render-decorator": "^0.2.2"
   }
 }
